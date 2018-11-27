@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+﻿const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const rules = {
     rule: [{
@@ -57,7 +57,12 @@ const rules = {
         {
             test: /\.(jsx|js)$/,
             use: {
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+		options: {
+                	presets: [
+                    		"env"
+                	]
+            	}
             },
             exclude: /node_modules/
         },

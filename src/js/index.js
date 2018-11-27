@@ -1,3 +1,4 @@
 import '../css/index.scss';
 
-console.log('启动 webpack.....')
+let info = '启动 webpack.....';
+console.log(info)

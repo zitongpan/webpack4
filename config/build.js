@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+﻿const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const glob = require('glob');
@@ -7,6 +7,7 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const optimizeCss = require('optimize-css-assets-webpack-plugin');
 const rules = require('./rules');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -43,7 +44,11 @@ module.exports = {
         new webpack.ProvidePlugin({
             "$": "jquery",
             "jQuery": "jquery",
-        })
+        }),
+        new CleanWebpackPlugin(['dist'], {
+            root: path.resolve(__dirname, '../'),
+            verbose: true
+        }),
     ],
     //这个配置是用来处理优化配置的，它将会覆盖webpack默认的js压缩（其他测试中），
     //所以这里要使用UglifyJsPlugin()重新压缩一下js，optimizeCss({})压缩抽离出来的css
