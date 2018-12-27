@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+﻿const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -25,7 +25,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, '../dist'),
         //服务器得IP地址，可以使用IP也可以使用localhost
-        host: '172.19.4.242',
+        host: 'localhost',
         //服务器端压缩是否开启
         compress: true,
         port: 8081,

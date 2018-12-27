@@ -16,7 +16,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].js',
-        publicPath: '/', //处理静态文件路径。
+        publicPath: './', //处理静态文件路径。
     },
     module: {
         rules: rules.rule
@@ -35,12 +35,12 @@ module.exports = {
             inject: true
         }),
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css'
+            filename: '[name].css'
         }),
-        new PurifyCSSPlugin({
-            //这里配置了一个paths，主要是需找html模板，purifycss根据这个配置会遍历你的文件，查找哪些css被使用了。
-            paths: glob.sync(path.join(__dirname, '../src/*.html'))
-        }),
+        // new PurifyCSSPlugin({
+        //     //这里配置了一个paths，主要是需找html模板，purifycss根据这个配置会遍历你的文件，查找哪些css被使用了。
+        //     paths: glob.sync(path.join(__dirname, '../src/*.html'))
+        // }),
         new webpack.ProvidePlugin({
             "$": "jquery",
             "jQuery": "jquery",

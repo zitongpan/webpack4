@@ -58,11 +58,11 @@ const rules = {
             test: /\.(jsx|js)$/,
             use: {
                 loader: 'babel-loader',
-		options: {
-                	presets: [
-                    		"env"
-                	]
-            	}
+                options: {
+                    presets: [
+                        "env"
+                    ]
+                }
             },
             exclude: /node_modules/
         },
